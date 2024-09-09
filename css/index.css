@@ -1,8 +1,8 @@
 body {
-    font-family: American Typewriter;
-    font-size: 100px;
+    font-family: monospace;
+    font-size:20px;
     text-align: center;
-    background-color: rgb(255, 217, 217);
+    background-color: black;
     width: 100%;
     height: 100%;
   }
@@ -12,12 +12,12 @@ body {
     position: standard;
   }
   .button {
-    font-family: American Typewriter;
-    font-size: 100px;
+    font-family: monospace;
+    font-size: 20px;
     text-align: bottom;
     transition-duration: 1s;
-    background-color: rgb(255, 219, 225);
-    border: rgb(255, 107, 107) 2px solid;
+    background-color: rgb(214, 245, 255);
+    border: rgb(182, 228, 255) 2px solid;
     border-radius: 50px;
   }
   .button1:hover {
@@ -29,7 +29,14 @@ body {
   .button3:hover {
     background-color: rgb(255, 255, 255);
   }
-  p2 {
-    font-size: 15px;
+  .box{
+    border: 10px;
+    border-radius: 10px;
+    height: 400px;
+    width: 1500px;
+    background-color:aliceblue;
+    text-align: center;
+    margin-top: 10%;
+    margin-left: 14.5%;
   }
   
