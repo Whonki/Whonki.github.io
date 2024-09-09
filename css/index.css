@@ -39,4 +39,11 @@ body {
     margin-top: 10%;
     margin-left: 14.5%;
   }
-  
+  .caution-box{
+    border: yellow 10px solid;
+    height: 100px;
+    width: 1000px;
+    text-align: center;
+    background-color: rgb(255, 253, 151);
+    margin-left: 25%;
+  }
