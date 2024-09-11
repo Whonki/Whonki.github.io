@@ -32,12 +32,10 @@ body {
   .box{
     border: 10px;
     border-radius: 10px;
-    height: 400px;
-    width: 1500px;
+    height: auto;
+    width: auto;
     background-color:aliceblue;
     text-align: center;
-    margin-top: 10%;
-    margin-left: 14.5%;
   }
   .caution-box{
     border: yellow 10px solid;
