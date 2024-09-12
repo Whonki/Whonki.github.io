@@ -30,13 +30,13 @@ body {
     background-color: rgb(255, 255, 255);
   }
   .box{
-    border: 10px;
     border-radius: 10px;
     height: auto;
     width: auto;
     background-color:aliceblue;
-    margin: 40%;
-    padding: 50%;
+    content: 100%;
+    padding: 10%;
+    margin: 10%
 
   }
   .caution-box{
