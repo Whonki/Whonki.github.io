@@ -35,7 +35,9 @@ body {
     height: auto;
     width: auto;
     background-color:aliceblue;
-    margin: 40;
+    margin: 40%;
+    padding: 50%;
+
   }
   .caution-box{
     border: yellow 10px solid;
@@ -43,3 +45,6 @@ body {
     width: auto;
     background-color: rgb(255, 253, 151);
   }
+.grid {
+  display: grid;
+}
