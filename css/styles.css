@@ -1,5 +1,6 @@
 body {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: "Cardo", serif;
+    font-size: 16px;
     background-color: #000000;
     color: #ffffff;
     margin: 0;
@@ -41,29 +42,16 @@ button {
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
+    font-size: 16px;
+    font-family: "Cardo", serif;
 }
 .button1 {
-    background-color: #000000; /* black */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
     margin: 4px 2px;
     
     border-radius: 12px;
     border: 2px solid #ffffff; /* white border */
 }
 .button2 {
-    background-color: #000000; /* black */
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: block;
-    width: 40rem; /* set your desired width */
     margin-left: auto;
     margin-right: auto;
     height: 40rem;
@@ -73,4 +61,22 @@ button {
     height: 100%;
     width: 100%;
     border-radius: 12px;
+}
+/* Fonts*/
+.cardo-regular {
+  font-family: "Cardo", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.cardo-bold {
+  font-family: "Cardo", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.cardo-regular-italic {
+  font-family: "Cardo", serif;
+  font-weight: 400;
+  font-style: italic;
 }
