@@ -5,6 +5,14 @@ body {
     margin: 0;
     padding: 20px;
 }
+
+.bodyIntro {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin: 20px 0;
+    text-align: center;
+    color: #ffffff;
+}
 .bio {
     font-size: 1.2em;
     line-height: 1.6;
@@ -19,6 +27,9 @@ header {
     border: 2px solid #ffffff; /* white border */
     padding: 40px;
     border-radius: 12px;
+    margin-left: 20rem;
+    margin-right: 20rem;
+    margin-top: 10rem;
 }
 
 button {
@@ -49,17 +60,17 @@ button {
     background-color: #000000; /* black */
     border: none;
     color: white;
-    padding: 300px 99px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-}
-.gif-button {
-    max-width: 100%;
-    height: 30rem;
     display: block;
-    margin: 0 auto;
+    width: 40rem; /* set your desired width */
+    margin-left: auto;
+    margin-right: auto;
+    height: 40rem;
+}
+
+.button2 img {
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
 }
