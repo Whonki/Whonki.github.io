@@ -1,0 +1,183 @@
+body {
+  font-family: "Cardo", serif;
+  font-size: 16px;
+  background-color: #000000;
+  margin: 0;
+  padding: 20px;
+}
+
+.bodyIntro {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin: 20px 0;
+  text-align: center;
+  color: #ffffff;
+}
+
+main {
+  text-align: center;
+  margin-bottom: 20px;
+  border: 2px solid #ffffff; /* white border */
+  padding: 40px;
+  border-radius: 12px;
+  width: 50%;
+  left: 0;
+  right: 0;
+  margin-inline: auto; /* Center the header */
+}
+
+/* Button styles */
+button {
+  background-color: #000000; /* black */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: "Cardo", serif;
+}
+.button1 {
+  margin: 4px 2px;
+
+  border-radius: 12px;
+  border: 2px solid #ffffff; /* white border */
+}
+
+/* Fonts*/
+.cardo-regular {
+  font-family: "Cardo", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.cardo-bold {
+  font-family: "Cardo", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.cardo-regular-italic {
+  font-family: "Cardo", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+/* For formatting Paragraphs. */
+p {
+  font-family: "Cardo", serif;
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin: 20px 0;
+  text-align: center;
+  color: #ffffff;
+}
+.formatted-text {
+  font-size: 0.9em;
+  line-height: 1;
+  margin: 10px;
+  border-radius: 20px;
+  border: 2px solid #ffffff; /* white border */
+  padding: 10px;
+  width: 45%;
+}
+/* For formatting Headers. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Cardo", serif;
+  color: #ffffff;
+  text-align: center;
+}
+/* For formatting Links. */
+a {
+  color: #ffffff; /* green */
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  color: #ffffff; /* white on hover */
+}
+/* For formatting Lists. */
+ul,
+ol {
+  font-family: "Cardo", serif;
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin: 20px;
+  padding-left: 10rem; /* Indent lists */
+  color: #ffffff;
+}
+#boundaries-ul {
+  padding-left: 1rem; /* Indent lists */
+}
+li {
+  text-align: left; /* Center text within list items */
+  line-height: 1.6;
+}
+.pfp {
+  width: 200px; /* Set a fixed width */
+  height: 200px; /* Set a fixed height */
+  border-radius: 50%; /* Make it circular */
+  border: 2px solid #ffffff; /* White border */
+  display: flex;
+  float: left;
+  margin-left: auto;
+  margin-right: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.flex-container {
+  display: flex;
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+  flex: 1 1 auto; /* Allow items to grow and shrink */
+  gap: 20px; /* Space between items */
+}
+
+footer {
+  text-align: center;
+  position: flex;
+  bottom: 0px;
+  width: 100%;
+  color: #ffffff;
+}
+
+.scrollable {
+  overflow-y: scroll;
+  height: 400px;
+}
+
+#navbar {
+  display: flex;
+  justify-content: center;
+  background-color: #000000; /* black */
+  padding: 10px;
+  border-radius: 12px;
+}
+
+#BYI {
+  margin: 20px;
+  padding: 10px;
+  border-radius: 12px;
+  border: 2px solid #ffffff; /* white border */
+  width: 45%;
+  left: 0;
+  right: 0;
+  margin-inline: auto; /* Center the header */
+}
+
+#DNI {
+  margin: 20px;
+  padding: 10px;
+  border-radius: 12px;
+  border: 2px solid #ffffff; /* white border */
+  width: 45%;
+  left: 0;
+  right: 0;
+  margin-inline: auto; /* Center the header */
+}
