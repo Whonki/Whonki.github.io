@@ -166,7 +166,7 @@ li {
 }
 footer {
   text-align: center;
-  position: absolute;
+  position: flex;
   bottom: 0px;
   width: 100%;
   color: #ffffff;
