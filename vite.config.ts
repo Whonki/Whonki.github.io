@@ -3,6 +3,6 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  // GitHub Pages serves project sites at /<repo>/ (not /).
-  base: "/Whonki.github.io-1/",
+  // This repo is a GitHub Pages *user site* (username.github.io), served at /.
+  base: "/",
 });
