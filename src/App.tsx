@@ -130,7 +130,7 @@ function App() {
       {/* About me page. Add all of the info I want people to know about me here. */}
       <Card title="01" collapsible={false}>
         <div className="about-row">
-          <img src="imgs/pfp.jpg" alt="pfp" className="about-image" />
+          <img src="/imgs/pfp.jpg" alt="pfp" className="about-image" />
           <div className="about-text">
             <div className="carrd-profile">
               <p className="carrd-name">Alice</p>
@@ -167,9 +167,10 @@ function App() {
           <div className="footer-item">
             {/* Buttons for Socials that I want to be public */}
             <a href="https://github.com/Whonki" target="_blank" rel="noopener noreferrer">
-              <img src="imgs/GitHub_Invertocat_White_Clearspace.png" alt="Github" width="20" height="20"></img></a>
+            <img src="/imgs/GitHub_Invertocat_White_Clearspace.png" alt="Github" width="20" height="20"></img></a>
+
             <a href="https://www.linkedin.com/in/alice-phung-aa5722222/" target="_blank" rel="noopener noreferrer">
-              <img src="imgs/InBug-White.png" alt="LinkedIn" width="20" height="20"></img></a>
+              <img src="/imgs/InBug-White.png" alt="LinkedIn" width="20" height="20"></img></a>
           </div>
           <br />
           <br />
