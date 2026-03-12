@@ -76,7 +76,7 @@ function App() {
           <center><b>Hello! I'm Alice!</b></center> <br />
           Thanks for visiting my website! I'm currently a second year Natural Sciences Major at UofC specializing in Computer Science and Math!
           <br /> <br />
-          I'm currently interested in Human-Computer Interaction, mainly through the means of robotics, AR/VR, and also in software development.
+          I'm currently interested in Human-Computer Interaction, mainly through the means of robotics, AR/VR, and I'm also interested in software development.
           I hope by my third or fourth year, that I can start doing research in CPSC, and eventually also get a job in the industry!
           <br /> <br />
           Whenever you don't see me working on school, you can probably find me playing games in my club room, drawing, or goofing around with
