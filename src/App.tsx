@@ -144,15 +144,22 @@ function App() {
       <div className="carrd-tab-panels">
         <div className="carrd-tab-dots" role="tablist" aria-label="Content panels">
           {panels.map((p) => (
-            <button
+            <label
               key={p.id}
-              type="button"
-              role="tab"
-              className="carrd-tab-dot"
-              aria-selected={p.id === activePanel}
-              aria-label={p.title}
-              onClick={() => setActivePanel(p.id)}
-            />
+              className="carrd-tab-dot-wrapper"
+              htmlFor={`tab-dot-${p.id}`}
+              aria-hidden
+            >
+              <button
+                id={`tab-dot-${p.id}`}
+                type="button"
+                role="tab"
+                className="carrd-tab-dot"
+                aria-selected={p.id === activePanel}
+                aria-label={p.title}
+                onClick={() => setActivePanel(p.id)}
+              />
+            </label>
           ))}
         </div>
 
