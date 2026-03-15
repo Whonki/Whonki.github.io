@@ -163,9 +163,11 @@ function App() {
           ))}
         </div>
 
-        <Card title={active.title} collapsible={false} className="carrd-card--tab-active">
-          {active.body}
-        </Card>
+        <div key={activePanel} className="carrd-tab-panel-expand">
+          <Card title={active.title} collapsible={false} className="carrd-card--tab-active">
+            {active.body}
+          </Card>
+        </div>
       </div>
 
       {/* this is the footer section */}

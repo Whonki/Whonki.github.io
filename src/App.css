@@ -108,6 +108,16 @@ similar to what you would see on GitHub. This is more targetted towards the proj
   .carrd-card--inactive {
     transform: none;
   }
+  .carrd-tab-dot {
+    transition: none;
+  }
+  .carrd-tab-dot[aria-selected="true"] {
+    width: 24px;
+    transform: none;
+  }
+  .carrd-tab-panel-expand {
+    animation: none;
+  }
 }
 
 .carrd-header { /* This is the header of the card */
@@ -197,10 +207,12 @@ similar to what you would see on GitHub. This is more targetted towards the proj
   border: none;
   padding: 0;
   cursor: pointer;
+  flex-shrink: 0;
   transition:
-    transform 140ms ease,
-    background 140ms ease,
-    box-shadow 140ms ease;
+    width 220ms ease,
+    transform 220ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
 }
 
 .carrd-tab-dot:hover {
@@ -208,14 +220,39 @@ similar to what you would see on GitHub. This is more targetted towards the proj
 }
 
 .carrd-tab-dot[aria-selected="true"] {
+  width: 24px;
   background: #737373;
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.3);
-  transform: scale(1.1);
+  transform: scaleY(1.15);
+}
+
+.carrd-tab-dot:not([aria-selected="true"]) {
+  transform: scale(1);
 }
 
 .carrd-tab-dot:focus-visible {
   outline: 2px solid #525252;
   outline-offset: 2px;
+}
+
+/* Tab panel expand/collapse: content expands in when tab is selected */
+@keyframes tabPanelExpand {
+  from {
+    max-height: 0;
+    opacity: 0;
+    transform: scaleY(0.96);
+  }
+  to {
+    max-height: 1200px;
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+.carrd-tab-panel-expand {
+  overflow: hidden;
+  transform-origin: top;
+  animation: tabPanelExpand 320ms ease-out forwards;
 }
 
 .carrd-card--tab-active {
