@@ -493,6 +493,13 @@ similar to what you would see on GitHub. This is more targetted towards the proj
   display: inline-block;
 }
 
+.footer-social-icon {
+  display: block;
+  height: 20px;
+  width: auto;
+  object-fit: contain;
+}
+
 .footer p {
   font-size: 0.75rem;
   color: #525252;

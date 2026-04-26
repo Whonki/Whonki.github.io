@@ -67,6 +67,22 @@ function Card({
 }
 
 function App() {
+  const discordUsername = "whonki";
+  const [copyStatus, setCopyStatus] = useState<string>("");
+
+  const handleCopyDiscord = async () => {
+    try {
+      await navigator.clipboard.writeText(discordUsername);
+      setCopyStatus("Discord username copied!");
+    } catch {
+      setCopyStatus(`Could not copy automatically. Discord: ${discordUsername}`);
+    }
+
+    window.setTimeout(() => {
+      setCopyStatus("");
+    }, 2500);
+  };
+
   const panels = [
     {
       id: "about" as const,
@@ -91,29 +107,58 @@ function App() {
       title: "PROJECTS",
       body: (
         <>
-        <ul>
-          <li>
-            CalgaryHacks 2025 Tier 2 Winner
-          </li>
-          <li>
-            Hack The Change 2024 Tier 2 Participant
-          </li>
-          <li>
-            CPSC 233 Book Recommendation App
-          </li>
-          <li>
-            This website!
-          </li>
-        </ul>
+          <ul>
+            <li>
+              CalgaryHacks 2025 Tier 2 Winner
+            </li>
+            <li>
+              Hack The Change 2024 Tier 2 Participant
+            </li>
+            <li>
+              CPSC 233 Book Recommendation App
+            </li>
+            <li>
+              This website!
+            </li>
+          </ul>
         </>
       ),
     },
     {
-      id: "commissions" as const,
-      title: "COMMISSIONS",
+      id: "interests" as const,
+      title: "INTERESTS",
       body: (
         <>
-        I am currently closed for commissions! Sorry :(
+          <b>ANIME/MANGA:</b>
+          <ul>
+            <li>Chainsaw Man</li>
+            <li>Tokyo Ghoul</li>
+            <li>Jujutsu Kaisen</li>
+            <li>Spy x Family</li>
+            <li>Dungeon Meshi</li>
+          </ul>
+          <br />
+          <b>GAMES:</b>
+          <ul>
+            <li>Diablo 4</li>
+            <li>Resident Evil</li>
+            <li>Dark Souls III</li>
+            <li>League of Legends</li>
+            <li>Monster Hunter</li>
+          </ul>
+          <br />
+          <b>OTHER:</b>
+          <ul>
+            <li>ROBOTICS!!!</li>
+            <li>Stuff involving tasers!!!</li>
+            <li>Body Horror</li>
+            <li>Sharks (Especially Whale and Goblin sharks!!)</li>
+            <li>Bats</li>
+            <li>Leon S. Kennedy</li>
+            <li>Taekwondo</li>
+            <li>Journey To The West</li>
+            <li>Some things involving programming and software development!!!</li>
+          </ul>
         </>
       ),
     },
@@ -176,13 +221,22 @@ function App() {
           <div className="footer-item">
             {/* Buttons for Socials that I want to be public */}
             <a href="https://github.com/Whonki" target="_blank" rel="noopener noreferrer">
-            <img src="/imgs/GitHub_Invertocat_White_Clearspace.png" alt="Github" width="20" height="20"></img></a>
+              <img src="/imgs/GitHub_Invertocat_White_Clearspace.png" alt="Github" className="footer-social-icon"></img></a>
 
-            <a href="https://www.linkedin.com/in/alice-phung-aa5722222/" target="_blank" rel="noopener noreferrer">
-              <img src="/imgs/InBug-White.png" alt="LinkedIn" width="20" height="20"></img></a>
+            {/* Copy Discord username to clipboard */}
+            <button
+              type="button"
+              onClick={handleCopyDiscord}
+              aria-label="Copy Discord username"
+              title="Copy Discord username"
+              style={{ background: "none", border: "none", padding: 0, cursor: "pointer" }}
+            >
+              <img src="/imgs/Discord-Symbol-White.png" alt="Discord" className="footer-social-icon"></img>
+            </button>
           </div>
           <br />
           <br />
+          <p aria-live="polite">{copyStatus}</p>
           <p>© 2026 Whonki. All rights reserved.</p>
         </div>
       </footer>
