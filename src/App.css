@@ -449,7 +449,6 @@ similar to what you would see on GitHub. This is more targetted towards the proj
   align-items: center;
 
 }
-
 .about-image {
   width: 120px;
   height: 120px;
@@ -473,6 +472,33 @@ similar to what you would see on GitHub. This is more targetted towards the proj
     flex-direction: column;
     align-items: center;
     text-align: left;
+  }
+}
+
+.interests-layout {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.interests-col {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.interests-col ul {
+  padding: 0.35rem 0 0.5rem 1.5rem;
+}
+
+.interests-col b:not(:first-child) {
+  display: block;
+  margin-top: 1.25rem;
+}
+
+@media (max-width: 520px) {
+  .interests-layout {
+    flex-direction: column;
+    gap: 1.25rem;
   }
 }
 

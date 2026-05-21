@@ -128,38 +128,40 @@ function App() {
       id: "interests" as const,
       title: "INTERESTS",
       body: (
-        <>
-          <b>ANIME/MANGA:</b>
-          <ul>
-            <li>Chainsaw Man</li>
-            <li>Tokyo Ghoul</li>
-            <li>Jujutsu Kaisen</li>
-            <li>Spy x Family</li>
-            <li>Dungeon Meshi</li>
-          </ul>
-          <br />
-          <b>GAMES:</b>
-          <ul>
-            <li>Diablo 4</li>
-            <li>Resident Evil</li>
-            <li>Dark Souls III</li>
-            <li>League of Legends</li>
-            <li>Monster Hunter</li>
-          </ul>
-          <br />
-          <b>OTHER:</b>
-          <ul>
-            <li>ROBOTICS!!!</li>
-            <li>Stuff involving tasers!!!</li>
-            <li>Body Horror</li>
-            <li>Sharks (Especially Whale and Goblin sharks!!)</li>
-            <li>Bats</li>
-            <li>Leon S. Kennedy</li>
-            <li>Taekwondo</li>
-            <li>Journey To The West</li>
-            <li>Some things involving programming and software development!!!</li>
-          </ul>
-        </>
+        <div className="interests-layout">
+          <div className="interests-col">
+            <b>ANIME/MANGA:</b>
+            <ul>
+              <li>Chainsaw Man</li>
+              <li>Tokyo Ghoul</li>
+              <li>Jujutsu Kaisen</li>
+              <li>Spy x Family</li>
+              <li>Dungeon Meshi</li>
+              <li>Witch Hat Atelier</li>
+            </ul>
+            <b>GAMES:</b>
+            <ul>
+              <li>Diablo IV</li>
+              <li>Resident Evil</li>
+              <li>Dark Souls III</li>
+              <li>League of Legends</li>
+              <li>Monster Hunter</li>
+              <li>Cult Of The Lamb</li>
+            </ul>
+          </div>
+          <div className="interests-col">
+            <b>OTHER:</b>
+            <ul>
+              <li>ROBOTICS!!!</li>
+              <li>Stuff involving tasers!!!</li>
+              <li>Body Horror</li>
+              <li>Sharks (Especially Whale and Goblin sharks!!)</li>
+              <li>Taekwondo</li>
+              <li>Journey To The West</li>
+              <li>Some things involving programming and software development!!!</li>
+            </ul>
+          </div>
+        </div>
       ),
     },
   ];

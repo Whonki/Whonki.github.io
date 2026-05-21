@@ -7,4 +7,15 @@
 body {
   margin: 0;
   font-family: "GFS Didot", "Garamond", system-ui;
+
+}
+
+@font-face {
+  font-family: "GFS Didot";
+  src: url("/fonts/GFSDidot.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Paprika";
+  src: url("/fonts/Paprika-Regular.ttf") format("truetype");
 }
