@@ -1,183 +1,141 @@
 import "./App.css";
 
-import { useId, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
+type PanelId = "about" | "interests";
+// How the card is structured
 function Card({
   title,
   children,
-  defaultOpen = false,
-  collapsible = true,
-  open: controlledOpen,
-  onOpenChange,
   className,
 }: {
   title: string;
   children: React.ReactNode;
-  defaultOpen?: boolean;
-  collapsible?: boolean;
-  open?: boolean;
-  onOpenChange?: (open: boolean) => void;
   className?: string;
 }) {
-  const contentId = useId();
-  const isControlled = controlledOpen !== undefined;
-  const [uncontrolledOpen, setUncontrolledOpen] = useState(defaultOpen);
-  const open = isControlled ? controlledOpen : uncontrolledOpen;
-  const innerRef = useRef<HTMLDivElement | null>(null);
-  const [maxHeight, setMaxHeight] = useState<number>(0);
-
-  useLayoutEffect(() => {
-    if (!collapsible) return;
-    const el = innerRef.current;
-    if (!el) return;
-    setMaxHeight(open ? el.scrollHeight : 0);
-  }, [open, children, collapsible]);
-
   return (
-    <section className={`carrd-card${className ? ` ${className}` : ""}`}>
-      {collapsible ? (
-        <button
-          type="button"
-          className="carrd-card-title"
-          aria-expanded={open}
-          aria-controls={contentId}
-          onClick={() => {
-            const next = !open;
-            if (!isControlled) setUncontrolledOpen(next);
-            onOpenChange?.(next);
-          }}
-        >
-          {title}
-        </button>
-      ) : (
-        <h2 className="carrd-card-title carrd-card-title--static">{title}</h2>
-      )}
-      <div
-        id={contentId}
-        className={`carrd-card-body${collapsible ? "" : " carrd-card-body--static"}`}
-        data-open={collapsible ? (open ? "true" : "false") : "true"}
-        style={collapsible ? { maxHeight } : undefined}
-      >
-        <div ref={innerRef} className="carrd-card-body-inner">
-          {children}
-        </div>
+    <section className={`carrd-card${className ? ` ${className}` : ""}`}> 
+      <h2 className="carrd-card-title">{title}</h2> 
+      <div className="carrd-card-body"> 
+        <div className="carrd-card-body-inner">{children}</div>
       </div>
     </section>
   );
 }
 
-function App() {
-  const discordUsername = "whonki";
-  const [copyStatus, setCopyStatus] = useState<string>("");
+const DISCORD_USERNAME = "whonki";
 
-  const handleCopyDiscord = async () => {
-    try {
-      await navigator.clipboard.writeText(discordUsername);
-      setCopyStatus("Discord username copied!");
-    } catch {
-      setCopyStatus(`Could not copy automatically. Discord: ${discordUsername}`);
-    }
+const INTERESTS = {
+  anime: [
+    "Chainsaw Man",
+    "Tokyo Ghoul",
+    "Jujutsu Kaisen",
+    "Spy x Family",
+    "Dungeon Meshi",
+    "Witch Hat Atelier",
+  ],
+  games: [
+    "Diablo IV",
+    "Resident Evil",
+    "Destiny 2",
+    "League of Legends",
+    "Monster Hunter",
+    "Cult Of The Lamb",
+    "Warframe",
+  ],
+  other: [
+    "ROBOTICS!!!",
+    "Body Horror",
+    "Sharks (Especially Whale and Goblin sharks!!)",
+    "Taekwondo",
+    "Journey To The West",
+    "Some things involving programming and software development!!!",
+  ],
+} as const;
 
-    window.setTimeout(() => {
-      setCopyStatus("");
-    }, 2500);
-  };
-
-  const panels = [
+const PANELS: {
+  id: PanelId;
+  title: string;
+  body: React.ReactNode;
+}[] = [
     {
-      id: "about" as const,
+      id: "about",
       title: "ABOUT ME",
       body: (
-        <>
-          <center><b>Hello! I'm Alice!</b></center> <br />
-          Thanks for visiting my website! I'm currently a second year Natural Sciences Major at UofC specializing in Computer Science and Math!
-          <br /> <br />
-          I'm currently interested in Human-Computer Interaction, mainly through the means of robotics, AR/VR, and I'm also interested in software development.
-          I hope by my third or fourth year, that I can start doing research in CPSC, and eventually also get a job in the industry!
-          <br /> <br />
-          Whenever you don't see me working on school, you can probably find me playing games in my club room, drawing, or goofing around with
-          my friends!
-          <br /> <br />
-          I'm also usually online on Discord, so don't be afraid to say hi!
-        </>
+        <div className="about-copy">
+          <p className="about-copy-lead">
+            <strong>Hello! I'm Alice!</strong>
+          </p>
+          <p> I'm a third-year CPSC student at UofC!</p>
+          <p>
+          Currently, I'm doing research in Human-Computer Interaction. I hope that eventually I
+          can gain more opportunities to do research in the future, and also find opportunities to 
+          do work in the industry! (Whatever that looks like lol)
+          </p>
+          <p>Otherwise, you can probably find me playing games in my club room, drawing, or goofing around with my friends!</p>
+          <p>I'm also usually online on Discord, so don't be afraid to say hi!</p>
+        </div>
       ),
     },
     {
-      id: "projects" as const,
-      title: "PROJECTS",
-      body: (
-        <>
-          <ul>
-            <li>
-              CalgaryHacks 2025 Tier 2 Winner
-            </li>
-            <li>
-              Hack The Change 2024 Tier 2 Participant
-            </li>
-            <li>
-              CPSC 233 Book Recommendation App
-            </li>
-            <li>
-              This website!
-            </li>
-          </ul>
-        </>
-      ),
-    },
-    {
-      id: "interests" as const,
+      id: "interests",
       title: "INTERESTS",
       body: (
         <div className="interests-layout">
           <div className="interests-col">
-            <b>ANIME/MANGA:</b>
+            <h3 className="interests-heading">Anime/Manga</h3>
             <ul>
-              <li>Chainsaw Man</li>
-              <li>Tokyo Ghoul</li>
-              <li>Jujutsu Kaisen</li>
-              <li>Spy x Family</li>
-              <li>Dungeon Meshi</li>
-              <li>Witch Hat Atelier</li>
+              {INTERESTS.anime.map((item) => (
+                <li key={item}>{item}</li> // Link to anime + manga page
+              ))}
             </ul>
-            <b>GAMES:</b>
+            <h3 className="interests-heading">Games</h3>
             <ul>
-              <li>Diablo IV</li>
-              <li>Resident Evil</li>
-              <li>Dark Souls III</li>
-              <li>League of Legends</li>
-              <li>Monster Hunter</li>
-              <li>Cult Of The Lamb</li>
+              {INTERESTS.games.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
             </ul>
           </div>
           <div className="interests-col">
-            <b>OTHER:</b>
+            <h3 className="interests-heading">Other</h3>
             <ul>
-              <li>ROBOTICS!!!</li>
-              <li>Stuff involving tasers!!!</li>
-              <li>Body Horror</li>
-              <li>Sharks (Especially Whale and Goblin sharks!!)</li>
-              <li>Taekwondo</li>
-              <li>Journey To The West</li>
-              <li>Some things involving programming and software development!!!</li>
+              {INTERESTS.other.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
             </ul>
           </div>
         </div>
       ),
     },
   ];
+// 
+function App() {
+  const [copyStatus, setCopyStatus] = useState("");
+  const [activePanel, setActivePanel] = useState<PanelId>(PANELS[0].id);
 
-  const [activePanel, setActivePanel] = useState<(typeof panels)[number]["id"]>(
-    panels[0].id,
-  );
+  const active = PANELS.find((panel) => panel.id === activePanel) ?? PANELS[0];
 
-  const active = panels.find((p) => p.id === activePanel) ?? panels[0];
+  useEffect(() => {
+    if (!copyStatus) return;
+    const timeoutId = window.setTimeout(() => setCopyStatus(""), 2500);
+    return () => window.clearTimeout(timeoutId);
+  }, [copyStatus]);
 
+  const handleCopyDiscord = async () => {
+    try {
+      await navigator.clipboard.writeText(DISCORD_USERNAME);
+      setCopyStatus("Discord username copied!");
+    } catch {
+      setCopyStatus(`Could not copy automatically. Discord: ${DISCORD_USERNAME}`);
+    }
+  };
+
+// The Card components w/ Title + Body
   return (
     <div className="container">
-      {/* About me page. Add all of the info I want people to know about me here. */}
-      <Card title="01" collapsible={false}>
+      <Card title="01">
         <div className="about-row">
-          <img src="/imgs/pfp.jpg" alt="pfp" className="about-image" />
+          <img src="/imgs/pfp.jpg" alt="Alice" className="about-image" />
           <div className="about-text">
             <div className="carrd-profile">
               <p className="carrd-name">Alice</p>
@@ -187,60 +145,61 @@ function App() {
           </div>
         </div>
       </Card>
-      {/* I want to make a section underneath with three cards: Projects, ???, ??? */}
+
       <div className="carrd-tab-panels">
         <div className="carrd-tab-dots" role="tablist" aria-label="Content panels">
-          {panels.map((p) => (
-            <label
-              key={p.id}
-              className="carrd-tab-dot-wrapper"
-              htmlFor={`tab-dot-${p.id}`}
-              aria-hidden
-            >
+          {PANELS.map((panel) => (
+            <div key={panel.id} className="carrd-tab-dot-wrapper">
               <button
-                id={`tab-dot-${p.id}`}
                 type="button"
                 role="tab"
                 className="carrd-tab-dot"
-                aria-selected={p.id === activePanel}
-                aria-label={p.title}
-                onClick={() => setActivePanel(p.id)}
+                aria-selected={panel.id === activePanel}
+                aria-label={panel.title}
+                onClick={() => setActivePanel(panel.id)}
               />
-            </label>
+            </div>
           ))}
         </div>
 
         <div key={activePanel} className="carrd-tab-panel-expand">
-          <Card title={active.title} collapsible={false} className="carrd-card--tab-active">
+          <Card title={active.title} className="carrd-card--tab-active">
             {active.body}
           </Card>
         </div>
       </div>
 
-      {/* this is the footer section */}
       <footer className="footer">
-        <div className="footer-row">
-          <div className="footer-item">
-            {/* Buttons for Socials that I want to be public */}
-            <a href="https://github.com/Whonki" target="_blank" rel="noopener noreferrer">
-              <img src="/imgs/GitHub_Invertocat_White_Clearspace.png" alt="Github" className="footer-social-icon"></img></a>
-
-            {/* Copy Discord username to clipboard */}
-            <button
-              type="button"
-              onClick={handleCopyDiscord}
-              aria-label="Copy Discord username"
-              title="Copy Discord username"
-              style={{ background: "none", border: "none", padding: 0, cursor: "pointer" }}
-            >
-              <img src="/imgs/Discord-Symbol-White.png" alt="Discord" className="footer-social-icon"></img>
-            </button>
-          </div>
-          <br />
-          <br />
-          <p aria-live="polite">{copyStatus}</p>
-          <p>© 2026 Whonki. All rights reserved.</p>
+        <div className="footer-item">
+          <a
+            href="https://github.com/Whonki"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="/imgs/GitHub_Invertocat_White_Clearspace.png"
+              alt="GitHub"
+              className="footer-social-icon"
+            />
+          </a>
+          <button
+            type="button"
+            className="footer-social-button"
+            onClick={handleCopyDiscord}
+            aria-label="Copy Discord username"
+            title="Copy Discord username"
+          >
+            <img
+              src="/imgs/Discord-Symbol-White.png"
+              alt="Discord"
+              className="footer-social-icon"
+            />
+          </button>
         </div>
+        <p className="footer-status" aria-live="polite">
+          {copyStatus}
+        </p>
+        <p>© 2026 Whonki. All rights reserved.</p>
       </footer>
     </div>
   );

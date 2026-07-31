@@ -1,5 +1,5 @@
 @import "./index.css";
-/* Main idea is to make a carrd-like layout, but with more flexibility and design choices. */
+
 .container {
   min-height: 100vh;
   background: #0d0d0d;
@@ -9,54 +9,6 @@
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
-}
-
-/* Buttons for each language ik (ex. a button for TypeScript, Python, etc.) 
-similar to what you would see on GitHub. This is more targetted towards the projects section.*/
-.language-buttons { 
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin-bottom: 2rem;
-}
-
-/* Invisible larger hit area for language buttons; keeps small look */
-.language-button-wrapper {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px;
-  cursor: pointer;
-  margin: -12px;
-}
-
-.language-button-wrapper .language-button,
-.language-button {
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  background: #1a1a1a;
-  border: 1px solid #333;
-  color: #e5e5e5;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.language-button-wrapper:hover .language-button,
-.language-button:hover {
-  background: #2a2a2a;
-}
-
-.card-default-size {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 1rem 1.25rem;
-  text-align: left;
-  border-radius: 8px;
-  background: #1a1a1a;
-  border: 1px solid #333;
-  width: min(560px, 100%);
 }
 
 @keyframes cardPop {
@@ -83,93 +35,38 @@ similar to what you would see on GitHub. This is more targetted towards the proj
   }
 }
 
-.card-default-size:hover {
-  transform: translateY(-3px) scale(1.01);
-  box-shadow:
-    0 22px 58px rgba(0, 0, 0, 0.65),
-    0 0 0 1px rgba(125, 211, 252, 0.2);
-  transition:
-    transform 160ms ease,
-    box-shadow 160ms ease;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .card-default-size {
-    animation: none;
+@keyframes tabPanelExpand {
+  from {
+    max-height: 0;
+    opacity: 0;
+    transform: scaleY(0.96);
   }
-  .card-default-size:hover {
-    transform: none;
-    transition: none;
-  }
-  .carrd-card {
-    transition: none;
-  }
-  .carrd-card--active,
-  .carrd-card--inactive {
-    transform: none;
-  }
-  .carrd-tab-dot {
-    transition: none;
-  }
-  .carrd-tab-dot[aria-selected="true"] {
-    width: 24px;
-    transform: none;
-  }
-  .carrd-tab-panel-expand {
-    animation: none;
+  to {
+    max-height: 1200px;
+    opacity: 1;
+    transform: scaleY(1);
   }
 }
 
-.carrd-header { /* This is the header of the card */
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.carrd-title { /* This is the title of the card */
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  margin: 0;
-  color: #fff;
-}
-
-.carrd-content { /* This is the content of the card */
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 1.25rem;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.carrd-profile { 
+.carrd-profile {
   text-align: center;
   padding: 1rem;
 }
 
-.carrd-card { /* This is the card for the content */
+.carrd-card {
   background: #1a1a1a;
   border: 1px solid #333;
   border-radius: 8px;
   padding: 1rem 1.25rem;
   text-align: left;
   width: min(560px, 100%);
-  transition:
-    transform 220ms ease,
-    opacity 220ms ease,
-    filter 220ms ease,
-    border-color 220ms ease,
-    box-shadow 220ms ease;
 }
 
-.carrd-panels {
-  width: min(560px, 100%);
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+.carrd-card--tab-active {
+  animation: cardPop 240ms ease;
 }
 
-.carrd-tab-panels { 
+.carrd-tab-panels {
   width: min(560px, 100%);
   display: flex;
   flex-direction: column;
@@ -177,7 +74,7 @@ similar to what you would see on GitHub. This is more targetted towards the proj
   gap: 1.1rem;
 }
 
-.carrd-tab-dots { 
+.carrd-tab-dots {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -189,13 +86,11 @@ similar to what you would see on GitHub. This is more targetted towards the proj
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
-/* Invisible larger hit area; keeps the small dot look */
 .carrd-tab-dot-wrapper {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 12px;
-  cursor: pointer;
   margin: -12px;
 }
 
@@ -226,27 +121,9 @@ similar to what you would see on GitHub. This is more targetted towards the proj
   transform: scaleY(1.15);
 }
 
-.carrd-tab-dot:not([aria-selected="true"]) {
-  transform: scale(1);
-}
-
 .carrd-tab-dot:focus-visible {
   outline: 2px solid #525252;
   outline-offset: 2px;
-}
-
-/* Tab panel expand/collapse: content expands in when tab is selected */
-@keyframes tabPanelExpand {
-  from {
-    max-height: 0;
-    opacity: 0;
-    transform: scaleY(0.96);
-  }
-  to {
-    max-height: 1200px;
-    opacity: 1;
-    transform: scaleY(1);
-  }
 }
 
 .carrd-tab-panel-expand {
@@ -255,88 +132,11 @@ similar to what you would see on GitHub. This is more targetted towards the proj
   animation: tabPanelExpand 320ms ease-out forwards;
 }
 
-.carrd-card--tab-active {
-  animation: cardPop 240ms ease;
-}
-
-.carrd-panels[data-has-active="true"] .carrd-card {
-  will-change: transform;
-}
-
-.carrd-card--active {
-  transform: scale(1.02);
-  border-color: rgba(125, 211, 252, 0.35);
-  box-shadow:
-    0 22px 58px rgba(0, 0, 0, 0.65),
-    0 0 0 1px rgba(125, 211, 252, 0.18);
-  filter: saturate(1.05);
-}
-
-.carrd-card--inactive {
-  opacity: 0.62;
-  transform: scale(0.985);
-  filter: saturate(0.9);
-}
-
-@media (min-width: 860px) {
-  .carrd-panels {
-    width: min(1040px, 100%);
-    flex-direction: row;
-    gap: 0.9rem;
-    align-items: stretch;
-  }
-
-  .carrd-panels .carrd-card {
-    width: auto;
-    display: flex;
-    flex-direction: column;
-    min-height: 360px;
-    flex: 1 1 0px;
-    transition:
-      flex 260ms ease,
-      transform 220ms ease,
-      opacity 220ms ease,
-      filter 220ms ease,
-      border-color 220ms ease,
-      box-shadow 220ms ease;
-  }
-
-  .carrd-panels[data-has-active="true"] .carrd-card--active {
-    flex: 6 1 0px;
-  }
-
-  .carrd-panels[data-has-active="true"] .carrd-card--inactive {
-    flex: 1 1 0px;
-    min-width: 86px;
-    opacity: 0.72;
-  }
-
-  .carrd-panels[data-has-active="true"] .carrd-card--inactive .carrd-card-title {
-    padding: 0.5rem 0.25rem;
-    text-align: center;
-    border-bottom: 0;
-    flex: 1 1 auto;
-    display: grid;
-    place-items: center;
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-  }
-
-  .carrd-panels[data-has-active="true"] .carrd-card--inactive .carrd-card-title::after {
-    content: "";
-  }
-
-  .carrd-panels[data-has-active="true"] .carrd-card--inactive .carrd-card-body {
-    display: none;
-  }
-}
-
-.carrd-card-title { /* This is the title of the card */
+.carrd-card-title {
   width: 100%;
   background: transparent;
   border: 0;
   padding: 0 0 0.5rem 0;
-  cursor: pointer;
   user-select: none;
   font-size: 0.8rem;
   font-weight: 600;
@@ -348,63 +148,13 @@ similar to what you would see on GitHub. This is more targetted towards the proj
   text-align: left;
 }
 
-.carrd-card-title::after { /* This is the arrow of the card */
-  content: "▾";
-  float: right;
-  color: #666;
-}
-
-.carrd-card-title[aria-expanded="true"]::after { /* This is the arrow of the card when it is expanded */
-  content: "▴";
-}
-
-.carrd-card-title--static {
-  cursor: default;
-}
-
-.carrd-card-title--static::after {
-  content: "";
-}
-
-.carrd-card-body { /* This is the body of the card */
+.carrd-card-body {
   font-size: 0.95rem;
   line-height: 1.6;
-  overflow: hidden;
-  max-height: 0;
-  opacity: 0;
-  transform: translateY(-4px);
-  transition:
-    max-height 220ms ease,
-    opacity 180ms ease,
-    transform 180ms ease;
 }
 
-.carrd-card-body[data-open="true"] { /* This is the body of the card when it is expanded */
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.carrd-card-body--static {
-  max-height: none;
-  opacity: 1;
-  transform: none;
-  transition: none;
-}
-
-.carrd-card-body-inner { /* This is the inner of the body of the card */
+.carrd-card-body-inner {
   padding-top: 0.75rem;
-}
-
-.carrd-card-title:focus-visible {
-  outline: 2px solid #7dd3fc;
-  outline-offset: 3px;
-  border-radius: 6px;
-}
-
-@media (prefers-reduced-motion: reduce) { 
-  .carrd-card-body {
-    transition: none;
-  }
 }
 
 .carrd-card-body ul {
@@ -442,13 +192,12 @@ similar to what you would see on GitHub. This is more targetted towards the proj
   margin: 0;
 }
 
-
 .about-row {
   display: flex;
   gap: 2rem;
   align-items: center;
-
 }
+
 .about-image {
   width: 120px;
   height: 120px;
@@ -467,12 +216,14 @@ similar to what you would see on GitHub. This is more targetted towards the proj
   margin-top: 0.75rem;
 }
 
-@media (max-width: 520px) {
-  .about-row {
-    flex-direction: column;
-    align-items: center;
-    text-align: left;
-  }
+.about-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.about-copy-lead {
+  text-align: center;
 }
 
 .interests-layout {
@@ -490,16 +241,16 @@ similar to what you would see on GitHub. This is more targetted towards the proj
   padding: 0.35rem 0 0.5rem 1.5rem;
 }
 
-.interests-col b:not(:first-child) {
-  display: block;
-  margin-top: 1.25rem;
+.interests-heading {
+  margin: 0;
+  font-size: inherit;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
-@media (max-width: 520px) {
-  .interests-layout {
-    flex-direction: column;
-    gap: 1.25rem;
-  }
+.interests-heading:not(:first-child) {
+  margin-top: 1.25rem;
 }
 
 .footer {
@@ -507,6 +258,10 @@ similar to what you would see on GitHub. This is more targetted towards the proj
   margin-top: 2.5rem;
   padding-top: 1rem;
   border-top: 1px solid #262626;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .footer-item {
@@ -515,8 +270,16 @@ similar to what you would see on GitHub. This is more targetted towards the proj
   gap: 1rem;
 }
 
-.footer-item a {
-  display: inline-block;
+.footer-item a,
+.footer-social-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
 }
 
 .footer-social-icon {
@@ -530,4 +293,37 @@ similar to what you would see on GitHub. This is more targetted towards the proj
   font-size: 0.75rem;
   color: #525252;
   margin: 0;
+}
+
+.footer-status:empty {
+  display: none;
+}
+
+@media (max-width: 520px) {
+  .about-row {
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+  }
+
+  .interests-layout {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carrd-card--tab-active,
+  .carrd-tab-panel-expand {
+    animation: none;
+  }
+
+  .carrd-tab-dot {
+    transition: none;
+  }
+
+  .carrd-tab-dot[aria-selected="true"] {
+    width: 24px;
+    transform: none;
+  }
 }
