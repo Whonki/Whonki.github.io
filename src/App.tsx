@@ -83,13 +83,13 @@ const PANELS: {
       body: (
         <div className="interests-layout">
           <div className="interests-col">
-            <h3 className="interests-heading">Anime/Manga</h3>
+            <h3 className="interests-heading">Anime/Manga:</h3>
             <ul>
               {INTERESTS.anime.map((item) => (
                 <li key={item}>{item}</li> // Link to anime + manga page
               ))}
             </ul>
-            <h3 className="interests-heading">Games</h3>
+            <h3 className="interests-heading">Games:</h3>
             <ul>
               {INTERESTS.games.map((item) => (
                 <li key={item}>{item}</li>
@@ -97,7 +97,7 @@ const PANELS: {
             </ul>
           </div>
           <div className="interests-col">
-            <h3 className="interests-heading">Other</h3>
+            <h3 className="interests-heading">Other:</h3>
             <ul>
               {INTERESTS.other.map((item) => (
                 <li key={item}>{item}</li>
