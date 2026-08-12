@@ -27,6 +27,7 @@ const DISCORD_USERNAME = "whonki";
 
 const INTERESTS = {
   anime: [
+    "Chiikawa",
     "Chainsaw Man",
     "Tokyo Ghoul",
     "Jujutsu Kaisen",
